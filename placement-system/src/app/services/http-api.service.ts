@@ -11,10 +11,6 @@ export class HttpApiService {
   }
 
   getUsers() {
-    let username='user'
-    let password='password'
-  
-    const headers = new HttpHeaders({ Authorization: 'Basic ' + btoa(username + ':' + password) });
-    return this.httpClient.get<User>('http://localhost:8080/api/validateLogin',{headers});
+    return this.httpClient.get<User>('http://localhost:8080/api/validateLogin');
   }
 }

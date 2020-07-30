@@ -7,7 +7,8 @@ import { LoginComponent } from './login/login.component';
 import { LogoutComponent } from './logout/logout.component';
 import { NavigationBarComponent } from './navigation-bar/navigation-bar.component';
 import { ApplicationComponent } from './application/application.component';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpInterceptorService } from './services/http-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,12 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     FormsModule,
     HttpClientModule
   ],
-  providers: [HttpClientModule],
+  providers: [
+    HttpClientModule,
+    {  
+      provide:HTTP_INTERCEPTORS, useClass:HttpInterceptorService, multi:true 
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
