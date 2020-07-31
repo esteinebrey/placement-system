@@ -12,12 +12,13 @@ export class AuthenticationService {
   }
 
   authenticate(username, password) {
-    const headers = new HttpHeaders({ Authorization: 'Basic ' + btoa(username + ':' + password) });
-    return this.httpClient.get<User>('http://localhost:8080/api/validateLogin',{headers}).pipe(map(
+    return this.httpClient.post<any>('http://localhost:8080/authenticate',{username,password}).pipe(
+     map(
        userData => {
+        console.log("authenticate");
         sessionStorage.setItem('username',username);
-        let authString = 'Basic ' + btoa(username + ':' + password);
-        sessionStorage.setItem('basicauth', authString);
+        let tokenStr= 'Bearer '+userData.token;
+        sessionStorage.setItem('token', tokenStr);
         return userData;
        }
      )
@@ -27,7 +28,6 @@ export class AuthenticationService {
 
   isUserLoggedIn() {
     let user = sessionStorage.getItem('username')
-    console.log(!(user === null))
     return !(user === null)
   }
 

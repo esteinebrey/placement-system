@@ -11,6 +11,6 @@ export class HttpApiService {
   }
 
   getUsers() {
-    return this.httpClient.get<User>('http://localhost:8080/api/validateLogin');
+    return this.httpClient.get<User>('http://localhost:8080/authenticate');
   }
 }
