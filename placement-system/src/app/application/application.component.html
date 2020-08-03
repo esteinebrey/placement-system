@@ -1,1 +1,29 @@
-<p>application works!</p>
+<h1>Teaching Assistant Application</h1>
+<br />
+<div>
+    <label for="name">Name</label><br/>
+    <input type="text" name="name" [(ngModel)]="name" required /><br/><br/>
+
+    <label for="email">Email</label><br/>
+    <input type="email" name="email" [(ngModel)]="email" required /><br/><br/>
+
+    <label for="idNumber">Student ID Number</label><br/>
+    <input type="text" name="idNumber" [(ngModel)]="idNumber" pattern="[1-9][0-9]{6}" required /><br/><br/>
+
+    <label for="gpa">Current Cumulative GPA</label><br/>
+    <input type="text" name="gpa" [(ngModel)]="gpa" pattern="[0-4].[0-9]{3}" required /><br/><br/>
+
+    <label for="major">Major</label><br/>
+    <input type="text" name="major" [(ngModel)]="major" required /><br/><br/>
+
+    <label for="graduationDate">Expected Graduation Date</label><br/>
+    <input type="text" name="graduationDate" [(ngModel)]="graduationDate" required /><br/><br/>
+
+    <label for="courses">Courses</label><br/>
+    <input type="text" name="courses" [(ngModel)]="courses" required /><br/><br/>
+
+    <label for="languages">Programming Languages</label><br/>
+    <input type="text" name="languages" [(ngModel)]="languages" required /><br/><br/>
+     
+    <button class="btn btn-success">Apply</button>
+  </div>

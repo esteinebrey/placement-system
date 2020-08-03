@@ -9,6 +9,7 @@ import { NavigationBarComponent } from './navigation-bar/navigation-bar.componen
 import { ApplicationComponent } from './application/application.component';
 import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttpInterceptorService } from './services/http-interceptor.service';
+import { ViewApplicationsComponent } from './view-applications/view-applications.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { HttpInterceptorService } from './services/http-interceptor.service';
     LoginComponent,
     LogoutComponent,
     NavigationBarComponent,
-    ApplicationComponent
+    ApplicationComponent,
+    ViewApplicationsComponent
   ],
   imports: [
     BrowserModule,
