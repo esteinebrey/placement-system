@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  username = 'user';
+  username = '';
   password = '';
   validLogin = false;
 
@@ -22,7 +22,14 @@ export class LoginComponent implements OnInit {
     (this.authenticationService.authenticate(this.username, this.password).subscribe(
       data => {
         console.log("valid");
-        this.router.navigate([''])
+        console.log(data);
+        if (this.authenticationService.isAdminUser()) {
+          this.router.navigate(['/view-applications'])
+        }
+        else {
+          this.router.navigate(['/application'])
+        }
+        
         this.validLogin = true
       },
       error => {

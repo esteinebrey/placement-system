@@ -7,23 +7,34 @@ import { map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class AuthenticationService {
+  userType ='';
+  userId = -1;
 
   constructor(private httpClient:HttpClient) { 
   }
 
   authenticate(username, password) {
-    return this.httpClient.post<any>('http://localhost:8080/authenticate',{username,password}).pipe(
+    return this.httpClient.post<any>(`${serviceUrl}${authentication}`,{username,password}).pipe(
      map(
        userData => {
         console.log("authenticate");
-        sessionStorage.setItem('username',username);
-        let tokenStr= 'Bearer '+userData.token;
+        sessionStorage.setItem('username', username);
+        let tokenStr= 'Bearer ' + userData.token;
         sessionStorage.setItem('token', tokenStr);
+        this.userType = userData.permissions;
+        this.userId = userData.userId;
         return userData;
        }
      )
 
     );
+  }
+
+  isAdminUser() {
+    if (this.userType === 'admin') {
+      return true;
+    }
+    return false;
   }
 
   isUserLoggedIn() {

@@ -1,10 +1,10 @@
-<p>navigation-bar works!</p>
 <header>
     <nav class ="navbar navbar-expand-md navbar-dark bg-dark">
     
     <ul class="navbar-nav">
        
-      <li><a *ngIf="authenticationService.isUserLoggedIn()" routerLink="/" class="nav-link">Application</a></li>
+      <li><a *ngIf="authenticationService.isUserLoggedIn() && !authenticationService.isAdminUser()" routerLink="/application" class="nav-link">Application</a></li>
+      <li><a *ngIf="authenticationService.isUserLoggedIn() && authenticationService.isAdminUser()" routerLink="/view-applications" class="nav-link">View Applications</a></li>
       <li><a *ngIf="!authenticationService.isUserLoggedIn()" routerLink="/login" class="nav-link">Login</a></li>
       <li><a *ngIf="authenticationService.isUserLoggedIn()" routerLink="/logout" class="nav-link">LogOut</a></li>
     
