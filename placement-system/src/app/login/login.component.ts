@@ -8,9 +8,10 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  username = '';
-  password = '';
-  validLogin = false;
+  // Keep track of username, password, and if login is valid
+  username: string = '';
+  password: string = '';
+  isValidLogin: boolean = false;
 
   constructor(private router: Router,
     private authenticationService: AuthenticationService) { }
@@ -18,26 +19,23 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
+  // When submit username and password, use authentication service to authenticate
   checkLogin() {
     (this.authenticationService.authenticate(this.username, this.password).subscribe(
       data => {
-        console.log("valid");
-        console.log(data);
+        // Navigate to the right page based on the user type
         if (this.authenticationService.isAdminUser()) {
           this.router.navigate(['/view-applications'])
         }
         else {
           this.router.navigate(['/application'])
         }
-        
-        this.validLogin = true
+        // Update if login is valid
+        this.isValidLogin = true
       },
       error => {
-        console.log("invalid");
-        this.validLogin = false
+        this.isValidLogin = false
       }
     ));
-
   }
-
 }

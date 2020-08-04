@@ -10,7 +10,6 @@ export class HttpInterceptorService implements HttpInterceptor {
   constructor() { }
 
   intercept(req: HttpRequest<any>, next: HttpHandler) {
-
     if (sessionStorage.getItem('username') && sessionStorage.getItem('token')) {
       req = req.clone({
         setHeaders: {

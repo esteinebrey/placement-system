@@ -3,10 +3,10 @@
     
     <ul class="navbar-nav">
        
-      <li><a *ngIf="authenticationService.isUserLoggedIn() && !authenticationService.isAdminUser()" routerLink="/application" class="nav-link">Application</a></li>
-      <li><a *ngIf="authenticationService.isUserLoggedIn() && authenticationService.isAdminUser()" routerLink="/view-applications" class="nav-link">View Applications</a></li>
-      <li><a *ngIf="!authenticationService.isUserLoggedIn()" routerLink="/login" class="nav-link">Login</a></li>
-      <li><a *ngIf="authenticationService.isUserLoggedIn()" routerLink="/logout" class="nav-link">LogOut</a></li>
+      <li><a *ngIf="isLoggedInStudent" routerLink="/application" class="nav-link">Application</a></li>
+      <li><a *ngIf="isLoggedInAdmin" routerLink="/view-applications" class="nav-link">View Applications</a></li>
+      <li><a *ngIf="!isLoggedIn" routerLink="/login" class="nav-link">Login</a></li>
+      <li><a *ngIf="isLoggedIn" routerLink="/logout" class="nav-link">LogOut</a></li>
     
     </ul>
       </nav>

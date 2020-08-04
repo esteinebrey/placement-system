@@ -7,20 +7,24 @@ import { map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class AuthenticationService {
-  userType ='';
-  userId = -1;
+  // Type of the user - student, ta, or admin
+  userType: string ='';
+  // ID of user
+  userId: number = -1;
 
   constructor(private httpClient:HttpClient) { 
   }
 
-  authenticate(username, password) {
+  // Authenticate user upon login
+  authenticate(username: string, password: string) {
     return this.httpClient.post<any>(`${serviceUrl}${authentication}`,{username,password}).pipe(
      map(
        userData => {
-        console.log("authenticate");
+        // Store username and tokens
         sessionStorage.setItem('username', username);
         let tokenStr= 'Bearer ' + userData.token;
         sessionStorage.setItem('token', tokenStr);
+        // Keep track of user's ID and permissions
         this.userType = userData.permissions;
         this.userId = userData.userId;
         return userData;
@@ -30,6 +34,7 @@ export class AuthenticationService {
     );
   }
 
+  // Determine if user has type admin or not
   isAdminUser() {
     if (this.userType === 'admin') {
       return true;
@@ -37,11 +42,13 @@ export class AuthenticationService {
     return false;
   }
 
+  // Determine if user is logged in
   isUserLoggedIn() {
     let user = sessionStorage.getItem('username')
     return !(user === null)
   }
 
+  // Logs out the user
   logOut() {
     sessionStorage.removeItem('username')
   }

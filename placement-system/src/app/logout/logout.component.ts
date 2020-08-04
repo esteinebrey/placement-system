@@ -15,6 +15,7 @@ export class LogoutComponent implements OnInit {
 
   }
 
+  // When logout, show the login page and remove info from session
   ngOnInit() {
     this.authenticationService.logOut();
     this.router.navigate(['login']);
