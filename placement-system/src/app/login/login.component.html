@@ -1,10 +1,29 @@
 <div class="container">
+  <h2>Login</h2>
   <div>
-    <label for="username">Username:</label>
-    <input type="text" id="username" name="username" [(ngModel)]="username" required />
-    
-    <label for="password">Password:</label>
-    <input type="password" name="password" id="password" [(ngModel)]="password" required />
+    <div class="form-group">
+      <label for="username">Username:</label>
+      <input
+        type="text"
+        id="username"
+        name="username"
+        [(ngModel)]="username"
+        class="form-control"
+        required
+      />
+    </div><br />
+
+    <div class="form-group">
+      <label for="password">Password:</label>
+      <input
+        type="password"
+        name="password"
+        id="password"
+        [(ngModel)]="password"
+        class="form-control"
+        required
+      />
+    </div><br />
   </div>
-  <button (click)=checkLogin() class="btn btn-success">Login</button>
+  <button (click)="checkLogin()" class="btn btn-success">Login</button>
 </div>

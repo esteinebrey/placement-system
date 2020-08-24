@@ -3,6 +3,9 @@
 ## Basic Overview
 The TA Placement System is an application that is used by students to apply to be a computer science teaching assistant, administrators to appoint and place teaching assistants, and teaching assistants to view their placements. 
 
+## Git Repo
+This git repo contains the front-end code for the TA Placement System. placement-system-service contains the API for the TA Placement Service.
+
 ## Terminology
     - Course: A class.
 

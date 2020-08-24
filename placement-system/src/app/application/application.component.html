@@ -1,29 +1,104 @@
-<h1>Teaching Assistant Application</h1>
-<br />
-<div>
-    <label for="name">Name</label><br/>
-    <input type="text" name="name" [(ngModel)]="name" required /><br/><br/>
-
-    <label for="email">Email</label><br/>
-    <input type="email" name="email" [(ngModel)]="email" required /><br/><br/>
-
-    <label for="idNumber">Student ID Number</label><br/>
-    <input type="text" name="idNumber" [(ngModel)]="idNumber" pattern="[1-9][0-9]{6}" required /><br/><br/>
-
-    <label for="gpa">Current Cumulative GPA</label><br/>
-    <input type="text" name="gpa" [(ngModel)]="gpa" pattern="[0-4].[0-9]{3}" required /><br/><br/>
-
-    <label for="major">Major</label><br/>
-    <input type="text" name="major" [(ngModel)]="major" required /><br/><br/>
-
-    <label for="graduationDate">Expected Graduation Date</label><br/>
-    <input type="text" name="graduationDate" [(ngModel)]="graduationDate" required /><br/><br/>
-
-    <label for="courses">Courses</label><br/>
-    <input type="text" name="courses" [(ngModel)]="courses" required /><br/><br/>
-
-    <label for="languages">Programming Languages</label><br/>
-    <input type="text" name="languages" [(ngModel)]="languages" required /><br/><br/>
-     
-    <button class="btn btn-success">Apply</button>
+<div class="container">
+  <h2>Teaching Assistant Application</h2>
+  <div class="form-group">
+    <label for="name">Name</label><br />
+    <input
+      type="text"
+      name="name"
+      [(ngModel)]="name"
+      class="form-control"
+      required
+    /><br /><br />
   </div>
+
+  <div class="form-group">
+    <label for="email">Email</label><br />
+    <input
+      type="email"
+      name="email"
+      [(ngModel)]="email"
+      class="form-control"
+      required
+    /><br /><br />
+  </div>
+
+  <div class="form-group">
+    <label for="idNumber">Student ID Number</label><br />
+    <input
+      type="number"
+      name="idNumber"
+      [(ngModel)]="idNumber"
+      class="form-control"
+      pattern="[1-9][0-9]{6}"
+      required
+    /><br /><br />
+  </div>
+
+  <div class="form-group">
+    <label for="gpa">Current Cumulative GPA</label><br />
+    <input
+      type="number"
+      name="gpa"
+      [(ngModel)]="gpa"
+      pattern="[0-4].[0-9]{3}"
+      class="form-control"
+      required
+    /><br /><br />
+  </div>
+
+  <div class="form-group">
+    <label for="major">Major</label><br />
+    <input
+      type="text"
+      name="major"
+      [(ngModel)]="major"
+      class="form-control"
+      required
+    /><br /><br />
+  </div>
+
+  <div class="form-group">
+    <label for="graduationDate">Expected Graduation Date</label><br />
+    <input
+      type="text"
+      name="graduationDate"
+      [(ngModel)]="graduationDate"
+      class="form-control"
+      required
+    /><br /><br />
+  </div>
+
+  <div class="form-group">
+    <label for="courses">Courses</label><br />
+    <input
+      type="text"
+      name="courses"
+      [(ngModel)]="courses"
+      class="form-control"
+      required
+    /><br /><br />
+  </div>
+
+  <div class="form-group">
+    <label for="languages">Programming Languages</label><br />
+    <input
+      type="text"
+      name="languages"
+      [(ngModel)]="languages"
+      class="form-control"
+      required
+    /><br /><br />
+  </div>
+
+  <div class="form-group">
+    <label for="otherSkills">Other Skills</label><br />
+    <input
+      type="text"
+      name="otherSkills"
+      [(ngModel)]="otherSkills"
+      class="form-control"
+      required
+    /><br /><br />
+  </div>
+  <button class="btn btn-primary">Apply</button>
+</div>

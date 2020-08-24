@@ -10,6 +10,7 @@ import { ApplicationComponent } from './application/application.component';
 import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttpInterceptorService } from './services/http-interceptor.service';
 import { ViewApplicationsComponent } from './view-applications/view-applications.component';
+import { AuthenticationService } from './services/authentication.service';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { ViewApplicationsComponent } from './view-applications/view-applications
     HttpClientModule
   ],
   providers: [
+    AuthenticationService,
     HttpClientModule,
     {  
       provide:HTTP_INTERCEPTORS, useClass:HttpInterceptorService, multi:true 
