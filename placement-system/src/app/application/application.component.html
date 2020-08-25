@@ -69,25 +69,32 @@
   </div>
 
   <div class="form-group">
-    <label for="courses">Courses</label><br />
-    <input
-      type="text"
-      name="courses"
-      [(ngModel)]="courses"
-      class="form-control"
-      required
-    /><br /><br />
+    <div *ngFor="let courseOption of courseOptions">
+      <label [for]="courseOption.courseId">{{ courseOption.deptCode }} {{ courseOption.number }}: {{ courseOption.name }}</label><br />
+      <input
+        type="checkbox"
+        name="courses"
+        [id] = courseOption.courseId
+        [(ngModel)]="courses"
+        class="form-control"
+      />
+    </div>
+    <br /><br />
   </div>
 
   <div class="form-group">
     <label for="languages">Programming Languages</label><br />
-    <input
-      type="text"
+    <div *ngFor="let skillOption of skillOptions">
+      <label [for]="skillOption.skillId">{{ skillOption.description }} </label><br />
+      <input
+      type="checkbox"
       name="languages"
+      [id] = skillOption.skillId
       [(ngModel)]="languages"
       class="form-control"
-      required
-    /><br /><br />
+    />
+    </div>
+    <br /><br />
   </div>
 
   <div class="form-group">

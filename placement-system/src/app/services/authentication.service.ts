@@ -34,6 +34,11 @@ export class AuthenticationService {
     );
   }
 
+  // Get JWT Token
+  getToken() {
+    return sessionStorage.getItem('token');
+  }
+
   // Determine if user has type admin or not
   isAdminUser() {
     if (this.userType === 'admin') {
